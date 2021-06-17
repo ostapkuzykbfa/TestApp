@@ -15,7 +15,6 @@ export const store = init<RootModel, FullModel>({
         persist({
             key: 'persist-storage',
             storage,
-            whitelist: ['settings'],
         })
     ]
 })

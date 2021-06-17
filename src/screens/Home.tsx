@@ -1,7 +1,7 @@
 import React from 'react';
 import { useProducts } from '../api';
 import { FlatList, ActivityIndicator, View, StyleSheet } from 'react-native';
-import { ProductItem } from '../ui';
+import { ListItemSeparator, ProductItem } from '../ui';
 import { ProductItemType } from '@types';
 import { useDispatch } from 'react-redux';
 import { RootState, Dispatch } from '../store'
@@ -17,8 +17,6 @@ export const Home = () => {
     return <ProductItem product={item.item} key={item.id} addToCart={() => addToCart(item)} />;
   };
 
-  const ItemSeparatorComponent = () => <View style={{ height: 10 }} />;
-
   return (
     <View style={styles.container}>
       {isLoading ? (
@@ -33,7 +31,7 @@ export const Home = () => {
           onRefresh={refetch}
           directionalLockEnabled={true}
           showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={ItemSeparatorComponent}
+          ItemSeparatorComponent={ListItemSeparator}
         />
       )}
     </View>

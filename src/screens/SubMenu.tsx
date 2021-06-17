@@ -1,9 +1,8 @@
 import React from 'react';
-import { SectionList, ActivityIndicator, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { MenuItem, SubMenuHeaderItem, SubMenuItem } from '../ui';
-import { useSelector, useDispatch } from 'react-redux'
-import { useEffect } from 'react';
-import { RootState, Dispatch } from '../store';
+import { SectionList, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { ListItemSeparator, SubMenuHeaderItem, SubMenuItem } from '../ui';
+import { useSelector } from 'react-redux'
+import { RootState } from '../store';
 
 type SectionListElement = {
   title: string,
@@ -24,17 +23,17 @@ export const SubMenu = ({ route, navigation }: { navigation: any }) => {
 
   const renderItem = (item: any) => {
     return (
-      <SubMenuItem item={item.item}/>
+      <TouchableOpacity onPress={()=>{}}>
+        <SubMenuItem item={item.item} key={item.item} />
+      </TouchableOpacity>
     )
   };
 
   const renderSectionHeader = (item: any) => {
     return (
-      <SubMenuHeaderItem item={item.section.title}/>
+      <SubMenuHeaderItem item={item.section.title} key={item.section.title} />
     )
   }
-
-  const ItemSeparatorComponent = () => <View style={{ height: 10 }} />;
 
   return (
     <View style={styles.container}>
@@ -43,7 +42,7 @@ export const SubMenu = ({ route, navigation }: { navigation: any }) => {
         keyExtractor={(item, index) => item + index}
         renderItem={renderItem}
         renderSectionHeader={renderSectionHeader}
-        ItemSeparatorComponent={ItemSeparatorComponent}
+        ItemSeparatorComponent={ListItemSeparator}
         directionalLockEnabled={true}
         showsVerticalScrollIndicator={false}
       />

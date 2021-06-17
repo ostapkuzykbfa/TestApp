@@ -42,26 +42,26 @@ export const CartItem = ({
             : require('../assets/icons/ImageError.png')
         }
         style={{ height: 100, width: 100 }}
-        resizeMode="cover"
+        resizeMode="contain"
         onError={() => setImageLoadFailed(true)}
       />
-      <View style={{ backgroundColor: "red", justifyContent: "center" }}>
+      <View style={{ justifyContent: "space-evenly", flex: 1 }}>
         <Text style={[styles.text, styles.nameText]}>{name}</Text>
         <Text style={styles.text}>{numberFormat(price)}</Text>
       </View>
 
       <View style={{ flexDirection: "row"}}>
-        <View style={{ backgroundColor: "blue", justifyContent: "center" }}>
+        <View style={{ justifyContent: "space-evenly", alignItems: 'center', paddingHorizontal: 4 }}>
           <Text style={styles.text}>Qty:</Text>
           <Text style={styles.text}>{count}</Text>
         </View>
         <View style={styles.changeQuantityButtonsContainer}>
-          <TouchableOpacity onPress={()=>increment()}>
+          <TouchableOpacity onPress={increment}>
             <Image
               source={require('../assets/icons/ic_increment.png')}
               style={styles.changeQuantityButton} />
           </TouchableOpacity>
-          <TouchableOpacity onPress={()=>decrement()}>
+          <TouchableOpacity onPress={decrement}>
             <Image source={require('../assets/icons/ic_decrement.png')}
               style={styles.changeQuantityButton} />
           </TouchableOpacity>
@@ -97,7 +97,6 @@ const styles = StyleSheet.create({
     // padding: 4,
   },
   text: {
-    color: 'white',
     fontSize: 18,
     fontWeight: '500',
   },
@@ -141,7 +140,8 @@ const styles = StyleSheet.create({
   },
   changeQuantityButtonsContainer: {
     justifyContent: "space-around",
-    width: 44, backgroundColor: "yellow"
+    width: 44,
+    // backgroundColor: "yellow"
   },
   changeQuantityButton: {
     height: 44,

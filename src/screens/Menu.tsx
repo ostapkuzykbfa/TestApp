@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList, ActivityIndicator, View, StyleSheet, TouchableOpacity } from 'react-native';
-import { MenuItem } from '../ui';
+import { ListItemSeparator, MenuItem } from '../ui';
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react';
 import { RootState, Dispatch } from '../store';
@@ -24,8 +24,6 @@ export const Menu = ({navigation}: {navigation: any}) => {
     )
   };
 
-  const ItemSeparatorComponent = () => <View style={{ height: 10 }} />;
-
   return (
     <View style={styles.container}>
       {isLoading ? (
@@ -40,7 +38,7 @@ export const Menu = ({navigation}: {navigation: any}) => {
           refreshing={isLoading}
           directionalLockEnabled={true}
           showsVerticalScrollIndicator={false}
-          ItemSeparatorComponent={ItemSeparatorComponent}
+          ItemSeparatorComponent={ListItemSeparator}
         />
       )}
     </View>

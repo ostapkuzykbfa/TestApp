@@ -1,19 +1,16 @@
 import React from 'react'
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import { CartItem } from '../ui'
+import { CartItem, ListItemSeparator } from '../ui'
 import { RootState, Dispatch } from '../store'
 import { useSelector, useDispatch } from 'react-redux'
 import { numberFormat } from '../core'
 
 export const Cart = () => {
-
-  const ItemSeparatorComponent = () => <View style={{ width: 10 }} />
-
   const cartItems = useSelector((state: RootState) => state.cart.items)
+  
   const dispatch = useDispatch<Dispatch>()
   
   const increment = (item: any) =>dispatch.cart.addToCart(item.product)
-
   const decrement = (item: any) => dispatch.cart.decrementItemFromCart(item)
 
   const renderItem = ({ item }: any) => {
@@ -30,7 +27,7 @@ export const Cart = () => {
     <View style={styles.container}>
       {cartItems.length == 0
         ? (<View style={[styles.container, styles.activityIndicatorContainer]}>
-          <Text>The cart is empty</Text>
+          <Text>Your cart is empty</Text>
         </View>)
         :
         (<>
@@ -40,7 +37,7 @@ export const Cart = () => {
             horizontal={false}
             directionalLockEnabled={true}
             showsHorizontalScrollIndicator={false}
-            ItemSeparatorComponent={ItemSeparatorComponent}
+            ItemSeparatorComponent={ListItemSeparator}
           />
           <View style={styles.totalPriceContainer}>
             <Text style={styles.totalPriceText}>TotalPrice: {numberFormat(totalPrice)}</Text>
