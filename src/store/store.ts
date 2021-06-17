@@ -1,7 +1,7 @@
 import { init, RematchDispatch, RematchRootState } from '@rematch/core'
 import { models, RootModel } from '../model'
 import persist from '@rematch/persist'
-import storage from 'redux-persist/lib/storage'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import loading, { ExtraModelsFromLoading } from '@rematch/loading'
 import select from '@rematch/select'
 
@@ -14,7 +14,7 @@ export const store = init<RootModel, FullModel>({
         select(),
         persist({
             key: 'persist-storage',
-            storage,
+            storage: AsyncStorage,
         })
     ]
 })

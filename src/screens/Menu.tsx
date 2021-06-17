@@ -19,7 +19,7 @@ export const Menu = ({navigation}: {navigation: any}) => {
     return (
       <TouchableOpacity
         onPress={() => navigation.navigate('SubMenu', { menuItem: item.item.name }) }>
-        <MenuItem item={item.item} key={item.item.id} />
+        <MenuItem item={item.item}/>
       </TouchableOpacity>
     )
   };

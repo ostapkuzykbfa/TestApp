@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     maxWidth: WIDTH,
-    // padding: 4,
   },
   text: {
     color: 'white',
@@ -129,11 +128,6 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 8,
     marginRight: 8,
-  },
-  buttonText: {
-    color: 'black',
-    fontSize: 22,
-    fontWeight: '500',
   },
   gradient: {
     height: 140,

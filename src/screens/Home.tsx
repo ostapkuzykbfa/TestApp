@@ -14,7 +14,7 @@ export const Home = () => {
   const addToCart = (item: any) => dispatch.cart.addToCart(item.item)
 
   const renderItem = (item: any) => {
-    return <ProductItem product={item.item} key={item.id} addToCart={() => addToCart(item)} />;
+    return <ProductItem product={item.item} addToCart={() => addToCart(item)} />;
   };
 
   return (

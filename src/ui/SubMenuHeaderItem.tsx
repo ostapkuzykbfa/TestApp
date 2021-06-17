@@ -7,17 +7,8 @@ import {
 
 export const SubMenuHeaderItem = ({ item }: { item: string }) => {
   return (
-      <View style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "stretch",
-        backgroundColor: "#f2f2f2"
-      }}>
-        <View style={{
-          justifyContent: "center",
-          paddingLeft: 16,
-          paddingVertical: 10
-        }}>
+      <View style={styles.container}>
+        <View style={styles.innerContainer}>
           <Text style={[styles.text]}>{item}</Text>
         </View>
       </View>
@@ -26,20 +17,18 @@ export const SubMenuHeaderItem = ({ item }: { item: string }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    maxHeight: 135,
-    justifyContent: 'flex-end',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "stretch",
+    backgroundColor: "#f2f2f2"
   },
-  bottomContainer: {
-    backgroundColor: 'black',
-    padding: 4,
-  },
-  infoContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  innerContainer: {
+    justifyContent: "center",
+    paddingLeft: 16,
+    paddingVertical: 10
   },
   text: {
     fontSize: 18,
-    fontWeight: '500',
+    fontWeight: 'bold',
   },
 });

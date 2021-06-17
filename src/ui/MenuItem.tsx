@@ -14,12 +14,7 @@ export const MenuItem = ({ item }: { item: MenuItemType }) => {
 
   return (
     <View style={{ padding: 10 }}>
-      <View style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "stretch",
-        backgroundColor: "#f2f2f2"
-      }}>
+      <View style={styles.container}>
         <View style={{
           justifyContent: "center",
           paddingLeft: 16
@@ -32,7 +27,7 @@ export const MenuItem = ({ item }: { item: MenuItemType }) => {
               ? { uri: img }
               : require('../assets/icons/ImageError.png')
           }
-          style={{ height: 90, width: 120 }}
+          style={styles.image}
           resizeMode="cover"
           onError={() => setImageLoadFailed(true)}
         />
@@ -43,9 +38,10 @@ export const MenuItem = ({ item }: { item: MenuItemType }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    maxHeight: 135,
-    justifyContent: 'flex-end',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "stretch",
+    backgroundColor: "#f2f2f2"
   },
   bottomContainer: {
     backgroundColor: 'black',
@@ -59,4 +55,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '500',
   },
+  image: { 
+    height: 90, 
+    width: 120 
+  }
 });

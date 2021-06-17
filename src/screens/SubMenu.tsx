@@ -24,7 +24,7 @@ export const SubMenu = ({ route, navigation }: { navigation: any }) => {
   const renderItem = (item: any) => {
     return (
       <TouchableOpacity onPress={()=>{}}>
-        <SubMenuItem item={item.item} key={item.item} />
+        <SubMenuItem item={item.item} />
       </TouchableOpacity>
     )
   };
