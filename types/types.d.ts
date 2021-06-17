@@ -11,4 +11,15 @@ declare module '@types' {
     product: ProductItemType
     count: number
   }
+
+  export interface MenuItemChildrenItem {
+    name: string;
+    categories: string[];
+  }
+
+  export interface MenuItemType {
+    name: string;
+    img: string;
+    children: MenuItemChildrenItem[]
+  }
 }
